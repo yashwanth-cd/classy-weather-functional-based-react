@@ -44,6 +44,9 @@ export default function App() {
           const data2 = await res2.json();
 
           setWeather(data2.daily);
+
+          // Storing the data in localstorage
+          localStorage.setItem("location", query);
         } catch (err) {
           if (err.name === "AbortError") return;
           console.error(err);
@@ -57,6 +60,10 @@ export default function App() {
     },
     [query]
   );
+
+  useEffect(function () {
+    setQuery(localStorage.getItem("location"));
+  }, []);
 
   return (
     <div className="app">
