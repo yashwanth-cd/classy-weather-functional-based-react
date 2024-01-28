@@ -69,6 +69,10 @@ export default function App() {
     <div className="app">
       <h1>Functional Classy weather</h1>
 
+      <p style={{ fontWeight: "bold" }}>
+        Search for a location to get the weather details for the week
+      </p>
+
       <input
         type="text"
         placeholder="Search for location"
@@ -78,7 +82,7 @@ export default function App() {
 
       {weather?.weathercode?.length && (
         <>
-          <h1>Weather {location}</h1>
+          <h1>Weather in {location}</h1>
           <ul className="weather">
             {dates.map((date, i) => (
               <Weather
